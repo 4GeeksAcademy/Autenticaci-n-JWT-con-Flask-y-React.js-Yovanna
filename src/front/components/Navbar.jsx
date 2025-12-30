@@ -1,19 +1,17 @@
-import { Link } from "react-router-dom";
+function Navbar() {
+  const logout = () => {
+    sessionStorage.removeItem("token");
+    window.location.href = "/login";
+  };
 
-export const Navbar = () => {
+  return (
+    <nav>
+      <a href="/signup">Signup</a>
+      <a href="/login">Login</a>
+      <a href="/private">Private</a>
+      <button onClick={logout}>Cerrar sesión</button>
+    </nav>
+  );
+}
 
-	return (
-		<nav className="navbar navbar-light bg-light">
-			<div className="container">
-				<Link to="/">
-					<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-				</Link>
-				<div className="ml-auto">
-					<Link to="/demo">
-						<button className="btn btn-primary">Check the Context in action</button>
-					</Link>
-				</div>
-			</div>
-		</nav>
-	);
-};
+export default Navbar;
